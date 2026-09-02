@@ -1,5 +1,5 @@
 
-const UserForm = () => {
+const UserForm = ({ data, updateFiledHandler }) => {
   return (
     <div>
         <div className="form-control">
@@ -8,7 +8,9 @@ const UserForm = () => {
             name="name" 
             id="name" 
             placeholder="Digite seu nome" 
-            required />
+            required 
+            value={data.name || ''}
+            onChange={(e) => updateFiledHandler('name', e.target.value)}/>
         </div>
 
         <div className="form-control">
@@ -17,7 +19,9 @@ const UserForm = () => {
             name="email" 
             id="email" 
             placeholder="Digite seu email" 
-            required />
+            required 
+            value={data.email || ''}
+            onChange={(e) => updateFiledHandler('email', e.target.value)}/>
         </div>
     </div>
   )
